@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  app:
+    container_name: "go-app"
+    build:
+      context: .
+      dockerfile: .docker/go/Dockerfile
+    volumes:
+      - ./src/:/go/src/${GO_PROJECT_DIR}
+    ports:
+      - "8787:8787"
+    env_file:
+      - .env
+    environment:
+      GO_PROJECT_DIR: "${GO_PROJECT_DIR}"
