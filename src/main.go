@@ -8,7 +8,7 @@ import (
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Fprintf(w, "This is the RESTful api")
+	fmt.Fprintf(w, "This is the RESTful api...")
 }
 
 func main() {

@@ -6,10 +6,9 @@ services:
       context: .
       dockerfile: .docker/go/Dockerfile
     volumes:
+#      - ./src/:$GOPATH/pkg
       - ./src/:/go/src/${GO_PROJECT_DIR}
     ports:
       - "8787:8787"
     env_file:
       - .env
-    environment:
-      GO_PROJECT_DIR: "${GO_PROJECT_DIR}"
