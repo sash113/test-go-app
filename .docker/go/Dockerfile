@@ -14,9 +14,10 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" \
     && chmod -R 777 "$GOPATH" && chmod +x /entrypoint.sh
-RUN go get github.com/tockins/realize
+
+RUN go get -u github.com/cosmtrek/air
 
 WORKDIR $GOPATH/src
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["realize", "start"]
+CMD ["air", "-d"]

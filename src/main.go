@@ -5,6 +5,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"log"
 	"net/http"
+	"os"
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -16,6 +17,7 @@ func main() {
 	router.GET("/", indexHandler)
 
 	log.Println("Running api server")
+	log.Println("Command line args: ", os.Args[1:])
 
 	http.ListenAndServe(":8787", router)
 }
